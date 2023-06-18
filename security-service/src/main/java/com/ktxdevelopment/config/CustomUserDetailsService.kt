@@ -1,6 +1,8 @@
 package com.ktxdevelopment.config
 
 import com.javatechie.config.CustomUserDetails
+import com.ktxdevelopment.entity.UserCredential
+import com.ktxdevelopment.repository.UserCredentialRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService
@@ -13,7 +15,7 @@ import java.util.function.Supplier
 @Component
 class CustomUserDetailsService : UserDetailsService {
     @Autowired
-    private val repository: UserCredentialRepository? = null
+    private lateinit var repository: UserCredentialRepository
 
     @Throws(UsernameNotFoundException::class)
     override fun loadUserByUsername(username: String): UserDetails {

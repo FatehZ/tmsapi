@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository
 import java.util.*
 
 interface UserCredentialRepository : JpaRepository<UserCredential?, Int?> {
-    fun findByName(username: String?): Optional<UserCredential?>?
+    fun findByName(username: String?): Optional<UserCredential>
 }
