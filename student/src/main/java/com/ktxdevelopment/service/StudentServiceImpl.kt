@@ -1,12 +1,15 @@
 package com.ktxdevelopment.service;
 
+import com.ktxdevelopment.StudentRepository
+import com.ktxdevelopment.model.request.StudentRequest
+import com.ktxdevelopment.model.response.StudentResponse
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 @Service
 class StudentServiceImpl(private val studentRepository: StudentRepository) : StudentService {
 
-    override fun createStudent(studentRequest: StudentRequest): Student {
+    override fun createStudent(studentRequest: StudentRequest): StudentResponse {
         val student = Student(studentRequest.name, studentRequest.email)
         return studentRepository.save(student)
     }

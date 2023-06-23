@@ -1,4 +1,6 @@
 package com.ktxdevelopment.model.request
 
-class StudentRequest {
+data class StudentRequest(
+    val studentId: Long
+) {
 }

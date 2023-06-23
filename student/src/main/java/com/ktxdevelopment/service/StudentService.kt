@@ -1,13 +1,12 @@
 package com.ktxdevelopment.service
 
-import com.ktxdevelopment.model.entity.Student
 import com.ktxdevelopment.model.request.StudentRequest
+import com.ktxdevelopment.model.response.StudentResponse
 
 interface StudentService {
-    fun createStudent(studentRequest: StudentRequest): Student
+    fun createStudent(studentRequest: StudentRequest): StudentResponse
     fun deleteStudent(id: Long)
-    fun getStudentsByPageAndLimit(page: Int, limit: Int): List<Student>
-    fun getStudentsByName(name: String): List<Student>
-    fun getStudentsByEmail(email: String): List<Student>
-    fun getStudentById(id: Long): Student
+    fun getStudentsByPageAndLimit(page: Int, limit: Int): List<StudentResponse>
+    fun getStudentsByEmail(email: String): List<StudentResponse>
+    fun getStudentByStudentId(id: Long): StudentResponse
 }

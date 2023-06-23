@@ -10,6 +10,7 @@
         <module name="course" />
         <module name="student" />
         <module name="discovery-service" />
+        <module name="gateway-service" />
         <module name="security-service" />
       </profile>
     </annotationProcessing>

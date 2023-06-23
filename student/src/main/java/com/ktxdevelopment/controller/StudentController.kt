@@ -4,24 +4,25 @@ package com.ktxdevelopment.controller
 import com.ktxdevelopment.model.dto.StudentDto
 import com.ktxdevelopment.model.entity.Student
 import com.ktxdevelopment.model.request.StudentRequest
+import com.ktxdevelopment.model.response.StudentResponse
 import com.ktxdevelopment.service.StudentService
 import jakarta.validation.Valid
-import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/students")
-class StudentController(private val studentService: StudentService) {
+class StudentController (private val studentService: StudentService) {
 
     @PostMapping
-    fun createStudent(@Valid @RequestBody studentRequest: StudentRequest): StudentDto {
-        val createdStudent = studentService.createStudent(studentRequest)
-        return mapToDto(createdStudent)
+    fun createStudent(@Valid @RequestBody studentRequest: StudentRequest): ResponseEntity<StudentResponse> {
+        return ResponseEntity.ok(studentService.createStudent(studentRequest));
     }
 
     @DeleteMapping("/{id}")
-    fun deleteStudent(@PathVariable id: Long) {
+    fun deleteStudent(@PathVariable id: Long): ResponseEntity<String> {
         studentService.deleteStudent(id)
+        return ResponseEntity.ok("Deleted successfully user $id")
     }
 
     @GetMapping
@@ -44,7 +45,7 @@ class StudentController(private val studentService: StudentService) {
 
     @GetMapping("/{id}")
     fun getStudentById(@PathVariable id: Long): StudentDto {
-        val student = studentService.getStudentById(id)
+        val student = studentService.getStudentByStudentId(id)
         return mapToDto(student)
     }
 
