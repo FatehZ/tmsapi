@@ -1,5 +1,8 @@
 package com.ktxdevelopment.service
 
+import com.ktxdevelopment.model.entity.Student
+import com.ktxdevelopment.model.request.StudentRequest
+
 interface StudentService {
     fun createStudent(studentRequest: StudentRequest): Student
     fun deleteStudent(id: Long)

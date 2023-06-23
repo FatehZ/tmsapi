@@ -5,6 +5,7 @@ import com.ktxdevelopment.model.dto.StudentDto
 import com.ktxdevelopment.model.entity.Student
 import com.ktxdevelopment.model.request.StudentRequest
 import com.ktxdevelopment.service.StudentService
+import jakarta.validation.Valid
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 
@@ -48,6 +49,6 @@ class StudentController(private val studentService: StudentService) {
     }
 
     private fun mapToDto(student: Student): StudentDto {
-        return StudentDto(student.id, student.name, student.email)
+        return StudentDto()//todo
     }
 }
