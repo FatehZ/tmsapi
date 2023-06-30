@@ -13,6 +13,7 @@
     <module>security-service</module>
     <module>discovery-service</module>
       <module>gateway-service</module>
+      <module>clients</module>
   </modules>
 
   <name>tmsapi</name>

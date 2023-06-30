@@ -1,4 +1,4 @@
-package com.ktxdevelopment.course
+package com.ktxdevelopment.course.app
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

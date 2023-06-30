@@ -25,15 +25,4 @@ class StudentServiceImpl(private val studentRepository: StudentRepository) : Stu
     override fun getStudentsByName(name: String): List<Student> {
         return studentRepository.findByName(name)
     }
-
-    fun isSqlInjectionSafe(str: String): Boolean {
-        if (str.contains(":")) return false
-        if (str.contains("=")) return false
-        if (str.contains("'")) return false
-        return true
-    }
-
-    fun checkForSqlInjection(student: StudentRequest) {
-        student.
-    }
 }

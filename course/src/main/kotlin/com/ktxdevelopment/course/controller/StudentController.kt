@@ -1,6 +1,8 @@
 package com.ktxdevelopment.controller
 
 
+import com.ktxdevelopment.model.dto.StudentDto
+import com.ktxdevelopment.model.entity.Student
 import com.ktxdevelopment.model.request.StudentRequest
 import com.ktxdevelopment.model.response.StudentResponse
 import com.ktxdevelopment.service.StudentService
@@ -24,25 +26,30 @@ class StudentController (private val studentService: StudentService) {
     }
 
     @GetMapping
-    fun getStudentsByPageAndLimit(
-        @RequestParam("page") page: Int,
-        @RequestParam("limit") limit: Int
-    ): ResponseEntity<List<StudentResponse>> {
-        return ResponseEntity.ok(studentService.getStudentsByPageAndLimit(page, limit))
+    fun getStudentsByPageAndLimit(@RequestParam("page") page: Int, @RequestParam("limit") limit: Int): List<StudentDto> {
+        val students = studentService.getStudentsByPageAndLimit(page, limit)
+        return students.map { mapToDto(it) }
     }
 
     @GetMapping("/name/{name}")
-    fun getStudentsByName(@PathVariable name: String): ResponseEntity<List<StudentResponse>> {
-        return ResponseEntity.ok(studentService.searchStudentsByName(name))
+    fun getStudentsByName(@PathVariable name: String): List<StudentDto> {
+        val students = studentService.getStudentsByName(name)
+        return students.map { mapToDto(it) }
     }
 
     @GetMapping("/email/{email}")
-    fun getStudentsByEmail(@PathVariable email: String): ResponseEntity<List<StudentResponse>> {
-        return ResponseEntity.ok(studentService.getStudentsByEmail(email))
+    fun getStudentsByEmail(@PathVariable email: String): List<StudentDto> {
+        val students = studentService.getStudentsByEmail(email)
+        return students.map { mapToDto(it) }
     }
 
-    @GetMapping("/{studentId}")
-    fun getStudentByStudentId(@PathVariable studentId: Long): ResponseEntity<StudentResponse> {
-        return ResponseEntity.ok(studentService.getStudentByStudentId(studentId))
+    @GetMapping("/{id}")
+    fun getStudentById(@PathVariable id: Long): StudentDto {
+        val student = studentService.getStudentByStudentId(id)
+        return mapToDto(student)
+    }
+
+    private fun mapToDto(student: Student): StudentDto {
+        return StudentDto()//todo
     }
 }

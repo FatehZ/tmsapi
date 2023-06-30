@@ -1,15 +1,35 @@
 server:
-  port: 8761
+    port: 8761
+    servlet:
+        context-path: /discovery-service
+
+
+logging:
+    level:
+        root: info
+        sql: info
+        web: info
 
 spring:
-  application:
-    name: discovery-service
+    application:
+        name: discovery-service
+#    main:
+#        allow-bean-definition-overriding: true
+#    datasource:
+#        url: jdbc:postgresql://localhost:5432/tmsdb
+#        name: neon
+#        password: neon
+#        driver-class-name: org.postgresql.Driver
+#    jpa:
+#        database: POSTGRESQL
+#        hibernate.ddl-auto: update
+#        show-sql: true
 
 eureka:
-  instance:
-    hostname: localhost
-  client:
-    registerWithEureka: false
-    fetchRegistry: false
-    serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+    instance:
+        hostname: localhost
+    client:
+        registerWithEureka: false
+        fetchRegistry: false
+        serviceUrl:
+            defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/

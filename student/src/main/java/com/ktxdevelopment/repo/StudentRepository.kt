@@ -1,4 +1,4 @@
-package com.ktxdevelopment
+package com.ktxdevelopment.repo
 
 import com.ktxdevelopment.model.entity.Student
 import org.springframework.data.jpa.repository.JpaRepository

@@ -3,18 +3,16 @@ package com.ktxdevelopment.model.entity
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.Id
+import jakarta.persistence.OneToMany
 import jakarta.persistence.Table
-import lombok.AllArgsConstructor
-import lombok.NoArgsConstructor
+import org.springframework.context.annotation.Lazy
 
-
-//@Entity
-@Table
-data class Grade(
+@Entity
+@Table(name = "faculty")
+data class Faculty(
     @Id
     @GeneratedValue
     val id: Int,
-    val studentId: Int,
-    val courseId: Int,
-    val grade: Double
+    val name: String,
+    @Lazy @OneToMany val courses: List<Course>
 )

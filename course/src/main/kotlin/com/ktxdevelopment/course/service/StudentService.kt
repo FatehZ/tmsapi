@@ -9,5 +9,4 @@ interface StudentService {
     fun getStudentsByPageAndLimit(page: Int, limit: Int): List<StudentResponse>
     fun getStudentsByEmail(email: String): List<StudentResponse>
     fun getStudentByStudentId(id: Long): StudentResponse
-    fun searchStudentsByName(name: String): List<StudentResponse>
 }
