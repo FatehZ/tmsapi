@@ -7,13 +7,19 @@ import jakarta.persistence.OneToMany
 import jakarta.persistence.Table
 import org.springframework.context.annotation.Lazy
 
-@Entity
-@Table(name = "faculty")
-data class Faculty(
+import java.util.List;
+
+@Entity(name = "faculty")
+@Table(name = "faculties")
+class Faculty {
+
     @Id
     @GeneratedValue
-    val id: Int,
+    private Integer id;
 
-    val name: String,
-    @Lazy @OneToMany val courses: List<Course>
-)
+    private String name;
+
+    @Lazy
+    @OneToMany
+    List<Course> courses;
+}

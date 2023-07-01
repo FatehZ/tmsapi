@@ -1,18 +1,15 @@
 package com.ktxdevelopment.model.entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
 @Table
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 class Course {
 
     @Id
@@ -21,7 +18,7 @@ class Course {
 
     private String courseId;
 
-    private String title;
-
-
+    @ManyToOne
+    @JoinColumn(name = "faculty_id")
+    private Faculty faculty;
 }

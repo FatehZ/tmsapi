@@ -24,6 +24,9 @@ class Student {
     @Column(unique = false, name = "profile_image")
     private String profileImage;
 
+
+    private Course course;
+
     @OneToOne
     @Lazy
     private Transcript transcript;
